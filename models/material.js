@@ -16,8 +16,15 @@ class Material {
     return new Material(material);
   }
 
-  // TO BE IMPLEMENTED
-  update() {}
+  static async update(id, base_power) {
+    const material = await db(table).where('id', id).update({
+      base_power: base_power
+    });
+    if (!material) return null;
+    const updatedMaterial = await db(table).where('id', id).first();
+
+    return new Material(updatedMaterial);
+  }
 }
 
 module.exports = Material;

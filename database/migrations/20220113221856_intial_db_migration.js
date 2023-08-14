@@ -14,6 +14,13 @@ exports.up = async function (knex) {
     t.integer('material_id').index();
     t.integer('qty');
   });
+  await knex.schema.createTable('weapons', function (t) {
+    t.increments('id').unsigned().primary();
+    t.text('name');
+    t.integer('material_1_id').index();
+    t.integer('material_2_id').index().nullable();
+    t.integer('material_3_id').index().nullable();
+  });
 };
 
 /**
@@ -22,4 +29,5 @@ exports.up = async function (knex) {
 exports.down = async function (knex) {
   await knex.schema.dropTable('materials');
   await knex.schema.dropTable('compositions');
+  await knex.schema.dropTable('weapons');
 };
