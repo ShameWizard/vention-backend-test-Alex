@@ -1,3 +1,10 @@
+Hello! I wanted to leave a couple of thoughts about how I went about solving the problems of this challenge.
+
+**Quest #1.**
+I wasn't sure what would be the best way to store the required material ids in the weapons table so I opted for 2 nullable columns
+**Quest #5.**
+I realized after looking over this problem that I would most likely be able to recycle the logic from Quest #2 so I opted to do just that in the spirit of reducing code duplication. This also meant that it would be kind of odd to call the same Model method for 2 different endpoints and so I took the liberty of just condensing everything down into one.
+
 # ⚔️ VENTION QUEST ⚔️
 
 **GOAL**
@@ -18,6 +25,7 @@
   > For example, an "Axe" weapon is composed of materials with ID 9 and 12, has a power level of:
   >
   > > ID 9 ➡️ 90 + 5*(130 + 10*220) = **11,740**
+  > >
   > > > 90 = the Base Power of material ID(9)
   > > >
   > > > 5 = the quantity required to make 1 unit of material ID(9) from ID(10)
@@ -29,6 +37,7 @@
   > > > 220 = the Base Power of material ID(11)
   > >
   > > ID 12 ➡️ **300**
+  > >
   > > > 300 = the Base Power of material ID (12)
   > >
   > > Total would be **12040**
